@@ -1,1 +1,63 @@
-/* Empty. Add your own CSS if you like */
+calendar {
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background: white;
+    width: 300px;
+    border: solid 1px #cccccc;
+    margin-bottom: 10px;
+}
+
+calendar > div.header {
+    float: left;
+    width: 100%;
+    background: #2875c7;
+    height: 40px;
+    color: white;
+}
+
+calendar > div.header > i.fa-angle-left {
+    text-align: left;
+}
+
+calendar > div.header > i.fa-angle-right {
+    text-align: right;
+    margin-left: -40px;
+}
+
+calendar > div.week {
+    float: left;
+    width: 100%;
+    border-top: solid 1px #cccccc;
+}
+
+calendar > div.week > span.day:first-child {
+    border-left: none;
+}
+
+calendar > div.week.names > span {
+    color: #2875c7;
+    font-weight: bold;
+}
+
+calendar > div.week > span.day.different-month {
+    color: #C0C0C0;
+}
+
+calendar > div.week > span.day {
+    float: left;
+    width: 14.28571429%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-left: solid 1px #cccccc;
+    font-size: 0.75em;
+    text-align: center;
+    height: 30px;
+    line-height: 30px !important;
+    display: inline-block;
+    vertical-align: middle;
+    background: white;
+    cursor: pointer;
+    color: black;
+}

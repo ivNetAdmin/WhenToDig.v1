@@ -5,22 +5,34 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
+var db = null;
+
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
+
+.run(function ($ionicPlatform, $cordovaSQLite) {
+    //console.log("cakes");
+    //console.log(window.cordova);
+    //console.log("zozo" +
+    //    "");
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+   // db = $cordovaSQLite.openDB("my.db");
+   // $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
+
   });
+
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -40,15 +52,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
+  //.state('tab.dash', {
+  //  url: '/dash',
+  //  views: {
+  //    'tab-dash': {
+  //      templateUrl: 'templates/tab-dash.html',
+  //      controller: 'DashCtrl'
+  //    }
+  //  }
+  //})
+
+        .state('tab.calendar', {
+            url: '/calendar',
+            views: {
+                'tab-calendar': {
+                    templateUrl: 'templates/tab-calendar.html',
+                    controller: 'CalendarCtrl'
+                }
+            }
+        })
 
   .state('tab.chats', {
       url: '/chats',
@@ -80,6 +102,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/calendar');
 
 });
