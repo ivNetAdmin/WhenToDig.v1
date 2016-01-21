@@ -1,8 +1,6 @@
-﻿<ion-view view-title="Calendar">
+﻿<ion-view view-title="When to Dig: Calendar">
     <ion-content class="padding">
-        <h2>When to Dig</h2>
-
-        <calendar selected="day" class="ng-isolate-scope">
+        <calendar selected="day" class="ng-isolate-scope group">
             <div class="header">
                 <i class="fa fa-angle-left" ng-click="previous()"></i>
                 <span>{{month.format("MMMM, YYYY")}}</span>
@@ -18,9 +16,21 @@
                 <span class="day">Sat</span>
             </div>
             <div class="week" ng-repeat="week in weeks">
-                <span class="day" ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }" ng-click="select(day)" ng-repeat="day in week.days">{{day.number}}</span>
+                <span class="day" id="{{day.date.format('YYYYMMDD')}}" ng-class="{
+                      today: day.isToday,
+                      'different-month': !day.isCurrentMonth,
+                      selected: day.date.isSame(selected)}"
+                      ng-click="select(day)"
+                      ng-repeat="day in week.days" show-Calendar-Tasks>{{day.number}}</span>
             </div>
         </calendar>
 
+        <ion-list class="group">
+            <ion-item ng-repeat="task in tasks | orderBy: 'date'" class="item-text-wrap">
+                <img src="img/{{task.type}}s.png" class="task-icon"/> {{task.date.substr(6,2)}}/{{task.date.substr(4,2)}} {{task.description}}
+            </ion-item>
+        </ion-list>
+
     </ion-content>
+
 </ion-view>

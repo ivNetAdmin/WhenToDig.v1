@@ -9,6 +9,32 @@
 var db = null;
 
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
+    .directive('showCalendarTasks', function () {
+        return function ($scope, element, attrs) {
+
+           // angular.element(element).addClass('bingo');
+            angular.forEach($scope.taskGroups, function (value, key) {
+                if (attrs.id === value.date) {
+                    angular.element(element).append('<img src="img/' + value.type + '.png"/>');
+                };
+            });
+
+           // $compile(angular.element(element))($scope);
+          //  angular.element(element).append('<img src="../img/123.png"/>');
+
+            //$day.addClass('bingo');
+
+            //attrs.class = attrs.class + ' bingo';
+
+            // angular.element(element).css('color','blue');
+            //if ($scope.$last){
+
+            //console.log($('calendar span.day').length);
+            //window.alert("im the last!");
+            //console.log($scope.tasks);
+            //}
+        };
+    })
 
 .run(function ($ionicPlatform, $cordovaSQLite) {
     //console.log("cakes");
@@ -40,29 +66,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
+    // Each state's controller can be found in controllers.js
 
-  // setup an abstract state for the tabs directive
-    .state('tab', {
+  $stateProvider.state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
-  })
-
-  // Each tab has its own nav history stack:
-
-  //.state('tab.dash', {
-  //  url: '/dash',
-  //  views: {
-  //    'tab-dash': {
-  //      templateUrl: 'templates/tab-dash.html',
-  //      controller: 'DashCtrl'
-  //    }
-  //  }
-  //})
-
-        .state('tab.calendar', {
+  }).state('tab.calendar', {
             url: '/calendar',
             views: {
                 'tab-calendar': {
@@ -70,33 +80,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     controller: 'CalendarCtrl'
                 }
             }
-        })
-
-  .state('tab.chats', {
-      url: '/chats',
+        }).state('tab.tasks', {
+      url: '/tasks',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-tasks': {
+          templateUrl: 'templates/tab-tasks.html',
+          controller: 'TasksCtrl'
         }
       }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+  }).state('tab.review', {
+      url: '/review',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
+          'tab-tasks': {
+              templateUrl: 'templates/tab-review.html',
+              controller: 'ReviewCtrl'
+          }
       }
-    })
-
-  .state('tab.account', {
-    url: '/account',
+  }).state('tab.plants', {
+    url: '/plants',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-plants': {
+        templateUrl: 'templates/tab-plants.html',
+        controller: 'PlantsCtrl'
       }
     }
   });

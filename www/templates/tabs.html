@@ -5,17 +5,22 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
-  <!-- Dashboard Tab -->
+  <!-- Calendar Tab -->
   <ion-tab title="Calendar" icon-off="ion-ios-calendar-outline" icon-on="ion-ios-calendar" href="#/tab/calendar">
     <ion-nav-view name="tab-calendar"></ion-nav-view>
   </ion-tab>
 
-  <!-- Chats Tab -->
-  <ion-tab title="Tasks" icon-off="ion-ios-alarm-outline" icon-on="ion-ios-alarm" href="#/tab/chats">
-    <ion-nav-view name="tab-chats"></ion-nav-view>
-  </ion-tab>
+  <!-- Task Tab -->
+    <ion-tab title="Tasks" icon-off="ion-ios-alarm-outline" icon-on="ion-ios-alarm" href="#/tab/tasks">
+        <ion-nav-view name="tab-tasks"></ion-nav-view>
+    </ion-tab>
 
-  <!-- Account Tab -->
+    <!-- Review Tab -->
+    <ion-tab title="Review" icon-off="ion-ios-eye-outline" icon-on="ion-ios-eye" href="#/tab/review">
+        <ion-nav-view name="tab-review"></ion-nav-view>
+    </ion-tab>
+
+    <!-- Account Tab -->
   <ion-tab title="Plants" icon-off="ion-ios-nutrition-outline" icon-on="ion-ios-nutrition" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>

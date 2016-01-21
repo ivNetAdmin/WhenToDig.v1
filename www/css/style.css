@@ -1,29 +1,32 @@
 calendar {
-    float: left;
+    floatx: left;
     display: block;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     background: white;
-    width: 300px;
+    width: 100%;
     border: solid 1px #cccccc;
     margin-bottom: 10px;
 }
 
 calendar > div.header {
-    float: left;
+    floatx: left;
     width: 100%;
     background: #2875c7;
     height: 40px;
     color: white;
+    text-align: center;
+    padding-top: 2%;
 }
 
 calendar > div.header > i.fa-angle-left {
-    text-align: left;
+    float: left;
+    margin-left: 2%;
 }
 
 calendar > div.header > i.fa-angle-right {
-    text-align: right;
-    margin-left: -40px;
+    float: right;
+    margin-right: 2%;
 }
 
 calendar > div.week {
@@ -60,4 +63,35 @@ calendar > div.week > span.day {
     background: white;
     cursor: pointer;
     color: black;
+}
+
+span.day img {
+    width: 20px;
+    float: right;
+}
+/*.bingo {
+    background-image: url('../img/123.png') !important;
+}*/
+
+div.content {
+    width: 100%;
+    height: 100%;
+    /*display: -ms-flexbox;
+    -ms-flex-flow: column;*/
+
+     /*display: -webkit-flex;
+    -webkit-flex-flow: column;*//*display: -webkit-flex;
+    -webkit-flex-flow: column;*/
+}
+
+.group:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+img.task-icon {
+    width: 4%;
 }
