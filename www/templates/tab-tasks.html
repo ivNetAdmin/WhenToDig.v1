@@ -1,8 +1,79 @@
 ﻿<ion-view view-title="When to Dig: Tasks">
     <ion-content class="padding">
 
+        <div class="row">
+            <div class="col">
+                <button class="button button-positive"
+                        modal-select ng-model="plant"
+                        options="selectables"
+                        modal-title="Select a plant" has-search="true">
+                    Plant
+                    <div class="option">
+                        {{option}}
+                    </div>
+                </button>
+            </div>
+            <div class="col col-75">
+                <div class="selected-plant">
+                    <h2>{{plant}}</h2>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row">
+            <div class="col">
+                <div class="list">
+                    <input type="date" ng-model="taskDate" value="{{taskDate | taskDate:MM/dd/yyyy}}"/>
+                </div>
+            </div>
+        </div>-->
+        <div class="row task-type-buttons">
+            <div class="col">
+                <button id="taskTypeSow" class="taskTypebutton button button-light" ng-click="setTaskType('Sow')">Sow</button>
+            </div>
+            <div class="col">
+                <button id="taskTypeHarvest" class="taskTypebutton button button-light" ng-click="setTaskType('Harvest')">Harvest</button>
+            </div>
+            <div class="col">
+                <button id="taskTypeOther" class="taskTypebutton button button-dark" ng-click="setTaskType('Other')">Other</button>
+            </div>
+        </div>
 
+        <!--<div class="row">
+            <div class="col">
+                <div class="list">
 
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Task:
+                        </div>
+                        <select ng-model="taskType">
+                            <option value="1">Sow</option>
+                            <option value="2">Harvest</option>
+                            <option value="3">Other</option>
+                        </select>
+                    </label>
 
-    </ion-content>
+                </div>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col">
+                <textarea ng-model="notes" class="text-box" placeholder="Notes" rows="6"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><button class="button button-assertive ion-android-delete"></button></div>
+            <div class="col"><button class="button float-right button-balanced ion-android-add"></button></div>
+        </div>
+       
+        <div class="row">
+            <div class="col">
+                <ion-list class="group">
+                    <ion-item ng-repeat="task in tasks | orderBy: 'date'" class="item-text-wrap" ng-click="selectTask(task)">
+                        <img src="img/{{task.type}}s.png" class="task-icon" /> {{task.date.substr(6,2)}}/{{task.date.substr(4,2)}} {{task.description}}
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+</ion-content>
 </ion-view>

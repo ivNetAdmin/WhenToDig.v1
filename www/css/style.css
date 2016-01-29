@@ -56,6 +56,7 @@ calendar > div.week > span.day {
     border-left: solid 1px #cccccc;
     font-size: 0.75em;
     text-align: center;
+    padding-top: 1%;
     height: 30px;
     line-height: 30px !important;
     display: inline-block;
@@ -65,13 +66,49 @@ calendar > div.week > span.day {
     color: black;
 }
 
-span.day img {
+/*span.day img {
     width: 20px;
     float: right;
-}
-/*.bingo {
-    background-image: url('../img/123.png') !important;
 }*/
+.task-type123 {
+    background: #fff url('../img/123.png') no-repeat !important;
+    background-size: 100% !important;
+}
+
+.task-type1 {
+    background: #fff url('../img/1.png') no-repeat !important;
+    background-size: 100% !important;
+}
+
+
+.task-type2 {
+    background: #fff url('../img/2.png') no-repeat !important;
+    background-size: 100% !important;
+}
+
+
+.task-type3 {
+    background: #fff url('../img/3.png') no-repeat !important;
+    background-size: 100% !important;
+}
+
+
+.task-type12 {
+    background: #fff url('../img/12.png') no-repeat !important;
+    background-size: 100% !important;
+}
+
+
+.task-type13 {
+    background: #fff url('../img/13.png') no-repeat !important;
+    background-size: 100% !important;
+}
+
+
+.task-type23 {
+    background: #fff url('../img/23.png') no-repeat !important;
+    background-size: 100% !important;
+}
 
 div.content {
     width: 100%;
@@ -94,4 +131,37 @@ div.content {
 
 img.task-icon {
     width: 4%;
+}
+
+div.selected-plant {
+    padding-top: 2%;
+    text-align: center;
+}
+
+input.month-selector {
+    border: thin solid green;
+    width: 100%;
+}
+
+input::-webkit-datetime-edit-year-field {
+    display: none;
+}
+
+button.float-right {
+    float: right;
+}
+
+textarea.text-box {
+    width: 100%;
+}
+
+input[type=date] {
+    width: 100%;
+}
+
+div.task-type-buttons button {
+    width: 100%;
+}
+i.angle-pointer {
+    cursor: pointer;
 }

@@ -1,36 +1,42 @@
 ﻿<ion-view view-title="When to Dig: Calendar">
     <ion-content class="padding">
-        <calendar selected="day" class="ng-isolate-scope group">
-            <div class="header">
-                <i class="fa fa-angle-left" ng-click="previous()"></i>
-                <span>{{month.format("MMMM, YYYY")}}</span>
-                <i class="fa fa-angle-right" ng-click="next()"></i>
-            </div>
-            <div class="week names">
-                <span class="day">Sun</span>
-                <span class="day">Mon</span>
-                <span class="day">Tue</span>
-                <span class="day">Wed</span>
-                <span class="day">Thu</span>
-                <span class="day">Fri</span>
-                <span class="day">Sat</span>
-            </div>
-            <div class="week" ng-repeat="week in weeks">
-                <span class="day" id="{{day.date.format('YYYYMMDD')}}" ng-class="{
+        <div class="row">
+            <div class="col">
+                <calendar selected="day" class="ng-isolate-scope group">
+                    <div class="header">
+                        <i class="fa fa-angle-left angle-pointer" ng-click="previous()"></i>
+                        <span>{{month.format("MMMM, YYYY")}}</span>
+                        <i class="fa fa-angle-right angle-pointer" ng-click="next()"></i>
+                    </div>
+                    <div class="week names">
+                        <span class="day">Sun</span>
+                        <span class="day">Mon</span>
+                        <span class="day">Tue</span>
+                        <span class="day">Wed</span>
+                        <span class="day">Thu</span>
+                        <span class="day">Fri</span>
+                        <span class="day">Sat</span>
+                    </div>
+                    <div class="week" ng-repeat="week in weeks">
+                        <span class="day" id="{{day.date.format('YYYYMMDD')}}" ng-class="{
                       today: day.isToday,
                       'different-month': !day.isCurrentMonth,
                       selected: day.date.isSame(selected)}"
-                      ng-click="select(day)"
-                      ng-repeat="day in week.days" show-Calendar-Tasks>{{day.number}}</span>
+                              ng-click="select(day)"
+                              ng-repeat="day in week.days" show-Calendar-Tasks>{{day.number}}</span>
+                    </div>
+                </calendar>
             </div>
-        </calendar>
-
-        <ion-list class="group">
-            <ion-item ng-repeat="task in tasks | orderBy: 'date'" class="item-text-wrap">
-                <img src="img/{{task.type}}s.png" class="task-icon"/> {{task.date.substr(6,2)}}/{{task.date.substr(4,2)}} {{task.description}}
-            </ion-item>
-        </ion-list>
-
+        </div>
+        <div class="row">
+            <div class="col">
+                <ion-list class="group">
+                    <ion-item ng-repeat="task in tasks | orderBy: 'date'" class="item-text-wrap">
+                        <img src="img/{{task.type}}s.png" class="task-icon"/> {{task.date.substr(6,2)}}/{{task.date.substr(4,2)}} {{task.description}}
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
     </ion-content>
 
 </ion-view>

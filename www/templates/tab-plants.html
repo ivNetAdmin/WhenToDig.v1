@@ -1,9 +1,145 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <div>Content goes here.</div>
-</body>
-</html>
+﻿<ion-view view-title="When to Dig: Plants">
+    <ion-content class="padding">
+
+        <div class="row">
+            <div class="col">
+                <button class="button button-positive"
+                        modal-select ng-model="plant"
+                        options="selectables"
+                        modal-title="Select a plant" has-search="true">
+                    Plant
+                    <div class="option">
+                        {{option}}
+                    </div>
+                </button>
+            </div>
+            <div class="col col-75">
+                <div class="selected-plant">
+                    <h2>{{plant}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="list">
+                    <label class="item item-input">
+                        <input type="text" ng-model="plantName" placeholder="Plant Name">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" ng-model="variety" placeholder="Variety">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Sow</div>
+            <div class="col">Harvest</div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="list">
+
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            F:
+                        </div>
+                        <select>
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        </select>
+                    </label>
+
+                </div>
+            </div>
+            <div class="col">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        F:
+                    </div>
+                    <select>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="list">
+
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            T:
+                        </div>
+                        <select>
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        </select>
+                    </label>
+
+                </div>
+            </div>
+            <div class="col">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        T:
+                    </div>
+                    <select>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <textarea placeholder="Notes" rows="6"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><button class="button button-assertive ion-android-delete"></button></div>
+            <div class="col"><button class="button float-right button-balanced ion-android-add"></button></div>
+        </div>
+    </ion-content>
+</ion-view>
