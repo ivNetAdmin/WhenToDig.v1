@@ -5,7 +5,7 @@
             <div class="col">
                 <button class="button button-positive"
                         modal-select ng-model="plant"
-                        options="selectables"
+                        options="tasks.selectables"
                         modal-title="Select a plant" has-search="true">
                     Plant
                     <div class="option">
@@ -58,7 +58,7 @@
         </div>-->
         <div class="row">
             <div class="col">
-                <textarea ng-model="notes" class="text-box" placeholder="Notes" rows="6"></textarea>
+                <textarea ng-model="tasks.taskNotes" class="text-box" placeholder="Notes" rows="6"></textarea>
             </div>
         </div>
         <div class="row">
@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col">
                 <ion-list class="group">
-                    <ion-item ng-repeat="task in tasks | orderBy: 'date'" class="item-text-wrap" ng-click="selectTask(task)">
+                    <ion-item ng-repeat="task in tasks.tasks | orderBy: 'date'" class="item-text-wrap" ng-click="selectTask(task)">
                         <img src="img/{{task.type}}s.png" class="task-icon" /> {{task.date.substr(6,2)}}/{{task.date.substr(4,2)}} {{task.description}}
                     </ion-item>
                 </ion-list>

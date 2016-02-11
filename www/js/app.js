@@ -72,6 +72,6 @@ angular.module('wtd', ['ionic', 'wtd.controllers', 'wtd.services', 'ngCordova', 
         });
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/calendar');
+        $urlRouterProvider.otherwise('/tab/tasks');
 
     });

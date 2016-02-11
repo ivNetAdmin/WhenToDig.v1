@@ -73,8 +73,12 @@ angular.module('wtd.controllers', [])
         init();
 
         $scope.selectTask = function(task) {
-         //   $scope.taskDate = task.date;
-            $scope.notes = task.description;
+            //   $scope.taskDate = task.date;
+
+           // console.log("notes:"+$scope.taskNotes);
+           // $('textarea#taskNotes').html("");
+
+            $scope.tasks.taskNotes = task.description;
             switch (task.type) {
                 case "1":
                     $scope.setTaskType("Sow");
@@ -86,7 +90,9 @@ angular.module('wtd.controllers', [])
                     $scope.setTaskType("Other");
                     break;
             }
-            $scope.taskType = task.type;
+            $scope.tasks.taskType = task.type;
+            console.log("notes:" + $scope.tasks.taskNotes);
+           // $scope.$apply();
         };
 
         $scope.setTaskType = function(type) {
@@ -97,22 +103,23 @@ angular.module('wtd.controllers', [])
 
             switch(type) {
                 case "Sow":
-                    $scope.taskType = 1;
+                    $scope.tasks.taskType = 1;
                     break;
                 case "Harvest":
-                    $scope.taskType = 2;
+                    $scope.tasks.taskType = 2;
                     break;
                 case "Other":
-                    $scope.taskType = 3;
+                    $scope.tasks.taskType = 3;
                     break;
             }
         };
 
         function init() {
+            $scope.tasks = {};
             setTasks($scope, Tasks.currentMonth(), Tasks);
         };
        
-        $scope.selectables = ['Carrots', 'Peas', 'Potatoes', 'Beans - Runner', 'Beans - Broad'];
+        $scope.tasks.selectables = ['Carrots', 'Peas', 'Potatoes', 'Beans - Runner', 'Beans - Broad'];
 
     })
     .controller('ReviewCtrl', function($scope, Tasks) {
@@ -123,21 +130,21 @@ angular.module('wtd.controllers', [])
 
 function setTasks($scope, month, tasks) {
 
-    $scope.tasks = tasks.get(month);
+    $scope.tasks.tasks = tasks.get(month);
 
-    $scope.taskGroups = [];
+    $scope.tasks.taskGroups = [];
 
-    angular.forEach($scope.tasks, function (value, key) {
+    angular.forEach($scope.tasks.tasks, function (value, key) {
 
         var taskGroup = { type: value.type, date: value.date }
         var index = getTaskGroupIndex($scope, taskGroup);
 
         if (index !== -1) {
-            if ($scope.taskGroups[index].type.indexOf(value.type) !== 1) {
-                $scope.taskGroups[index].type = $scope.taskGroups[index].type + value.type;
+            if ($scope.tasks.taskGroups[index].type.indexOf(value.type) !== 1) {
+                $scope.tasks.taskGroups[index].type = $scope.tasks.taskGroups[index].type + value.type;
             }
         } else {
-            $scope.taskGroups.push(taskGroup);
+            $scope.tasks.taskGroups.push(taskGroup);
         }
 
     });
@@ -145,8 +152,8 @@ function setTasks($scope, month, tasks) {
 }
 
 function getTaskGroupIndex($scope, taskGroup) {
-    for (var i = 0, len = $scope.taskGroups.length; i < len; i++) {
-        if (taskGroup.date === $scope.taskGroups[i].date) {
+    for (var i = 0, len = $scope.tasks.taskGroups.length; i < len; i++) {
+        if (taskGroup.date === $scope.tasks.taskGroups[i].date) {
             return i;
         }
     }
